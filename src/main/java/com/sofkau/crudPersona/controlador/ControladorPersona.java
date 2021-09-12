@@ -6,6 +6,7 @@ import com.sofkau.crudPersona.servicios.ServicioPersona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.PostUpdate;
 import java.util.Optional;
 
 @RestController
@@ -33,5 +34,10 @@ public class ControladorPersona {
     public void borrar(@PathVariable int id){
         servicio.borrar(id);
     }
+    @PutMapping(value = "/actualizar")
+    public Persona actualizar(@RequestBody Persona persona){
+        return servicio.actualizar(persona);
+    }
+
 
 }
