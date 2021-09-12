@@ -2,6 +2,7 @@ package com.sofkau.crudPersona.controlador;
 
 import com.sofkau.crudPersona.entidades.Persona;
 import com.sofkau.crudPersona.servicios.InterfasServiciosPersona;
+import com.sofkau.crudPersona.servicios.ServicioPersona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,10 @@ public class ControladorPersona {
     @PostMapping(value = "/guardarPersona")
     public  Persona guardarPersona(@RequestBody Persona persona){
         return servicio.guardar(persona);
+    }
+    @DeleteMapping(value = "borrarPorId/{id}")
+    public void borrar(@PathVariable int id){
+        servicio.borrar(id);
     }
 
 }
